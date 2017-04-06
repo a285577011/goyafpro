@@ -1,0 +1,47 @@
+package conf
+
+import (
+	"git.oschina.net/pbaapp/goyaf"
+)
+
+var Config map[string]map[string]string
+
+func init() {
+	Config = make(map[string]map[string]string)
+
+	//通用配置
+	common := make(map[string]string)
+	common["mysql.host"] = "10.10.149.234"
+	common["mysql.port"] = "3306"
+	common["mysql.database"] = "youxing_new"
+	common["mysql.username"] = "mushu"
+	common["mysql.password"] = "rVT9d4oNl"
+	common["mysql.charset"] = "utf8mb4"
+	common["mysql.driver_options.1002"] = "SET NAMES utf8mb4"
+	//common["mysql.maxconn"] = "1000"
+	//common["mysql.maxidleconn"] = "50"
+
+	common["mysql.pbayouxing.host"] = "10.10.149.234"
+	common["mysql.pbayouxing.port"] = "3306"
+	common["mysql.pbayouxing.database"] = "youxing"
+	common["mysql.pbayouxing.username"] = "mushu"
+	common["mysql.pbayouxing.password"] = "rVT9d4oNl"
+	common["mysql.pbayouxing.charset"] = "utf8mb4"
+	common["mysql.pbayouxing.driver_options.1002"] = "SET NAMES utf8mb4"
+	//common["mysql.pbayouxing.maxconn"] = "1000"
+	//common["mysql.pbayouxing.maxidleconn"] = "50"
+
+	common["url-app.pba.cn"] = "http://app.pba.cn"
+	common["url-user.mushu.cn"] = "http://user.mushu.cn"
+	common["http-listen-port"] = "8005"
+	common["debugmode"] = "1"
+
+	common["stdout"] = "/data/log/go/log/mushu-youxing.log"
+	common["stderr"] = "/data/log/go/log/mushu-youxing-error.log"
+
+	Config["common"] = common
+}
+
+func init() {
+	goyaf.Debug("init config")
+}

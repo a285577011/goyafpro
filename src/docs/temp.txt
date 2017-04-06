@@ -1,0 +1,16 @@
+truncate table migrate;
+delete from mission_log where log_id < 100000;
+delete from note where share_id < 100000;
+delete from people where people_id < 100000;
+delete from record where record_id < 1000000;
+delete from share where share_id < 100000;
+delete from target where target_id < 100000;
+
+
+
+alter table mission_log AUTO_INCREMENT=100000;
+alter table note AUTO_INCREMENT=100000;
+alter table people AUTO_INCREMENT=100000;
+alter table share AUTO_INCREMENT=100000;
+alter table record AUTO_INCREMENT=1000000;
+alter table target AUTO_INCREMENT=100000;
